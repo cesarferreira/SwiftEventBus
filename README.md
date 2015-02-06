@@ -4,7 +4,15 @@ Provides an interface for use the `addObserverForName` safely and easily.
 
 ## Features
 
+- [x] simplifies the communication between components
+- [x] decouples event senders and receivers
+- [x] avoids complex and error-prone dependencies and life cycle issues
+- [x] makes your code simpler
+- [x] is fast
+- [x] is tiny
 - [x] Thread-safe
+
+
 
 ## Requirements
 

@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Source/*.swift'
+  s.source_files = 'EventBus/*.swift'
 
   s.requires_arc = true
 end

@@ -21,7 +21,7 @@ Provides an interface for use the `addObserverForName` safely and easily.
 ## Installation
 
 ```bash
-pod 'EventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
 ```
 
 ## Usage

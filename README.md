@@ -30,13 +30,13 @@ pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git
 Subscribers implement event handling methods that will be called when an event is received.
 
 ```swift
-EventBus.onMainThread(target, name: "someEventName") { result in
+SwiftEventBus.onMainThread(target, name: "someEventName") { result in
     // UI thread
 }
 
 // or
 
-EventBus.onBackgroundThread(target, name:"someEventName") { result in
+SwiftEventBus.onBackgroundThread(target, name:"someEventName") { result in
     // API Access
 }
 ```
@@ -46,7 +46,7 @@ EventBus.onBackgroundThread(target, name:"someEventName") { result in
 Post an event from any part of your code. All subscribers matching the event type will receive it.
 
 ```swift
-EventBus.post("someEventName")
+SwiftEventBus.post("someEventName")
 ```
 
 ### Eventbus with parameters
@@ -54,12 +54,12 @@ EventBus.post("someEventName")
 Post event
 
 ```swift
-EventBus.post("personFetchEvent", sender: Person(name:"john doe"))
+SwiftEventBus.post("personFetchEvent", sender: Person(name:"john doe"))
 ```
 
 Expecting parameters
 ```swift
-EventBus.onMainThread(target, name:"personFetchEvent") { result in
+SwiftEventBus.onMainThread(target, name:"personFetchEvent") { result in
     let person : Person = result.object as Person
     println(person.name) // will output "john doe"
 }
@@ -69,9 +69,9 @@ EventBus.onMainThread(target, name:"personFetchEvent") { result in
 
 Remove all the observers of the target
 ```swift
-EventBus.unregister(target)
+SwiftEventBus.unregister(target)
 ```
 Remove observers of the same name of the target
 ```swift
-EventBus.unregister(target, "someEventName")
+SwiftEventBus.unregister(target, "someEventName")
 ```

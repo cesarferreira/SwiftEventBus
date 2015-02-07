@@ -13,7 +13,6 @@ Provides an interface for use the `addObserverForName` safely and easily.
 - [x] Thread-safe
 
 
-
 ## Requirements
 
 - iOS 8+
@@ -21,36 +20,58 @@ Provides an interface for use the `addObserverForName` safely and easily.
 
 ## Installation
 
-// todo
+```bash
+pod 'swift-EventBus', :git => 'https://github.com/cesarferreira/swift-EventBus.git'
+```
 
 ## Usage
+### 1: Prepare subscribers ###
 
-### Minimum
+Subscribers implement event handling methods that will be called when an event is received.
 
 ```swift
 EventBus.onMainThread(target, name: "someEventName") { result in
     // UI thread
 }
 
+// or
+
 EventBus.onBackgroundThread(target, name:"someEventName") { result in
     // API Access
 }
-
-EventBus.post("someEventName")
-
-EventBus.unregister(target) // Remove all the observers of the target
-
-EventBus.unregister(target, "someEventName") // Remove observers of the same name of the target
 ```
 
-### Sender
+### 2: Post events ###
+
+Post an event from any part of your code. All subscribers matching the event type will receive it.
 
 ```swift
-EventBus.onMainThread(target, name:"personFetchEvent") { result in
-    // API Access
-    let person = result.object as Person
-}
+EventBus.post("someEventName")
+```
 
-let person = Person(name:"john doe")
-EventBus.post("personFetchEvent", sender: person)
+### Eventbus with parameters
+
+Post event
+
+```swift
+EventBus.post("personFetchEvent", sender: Person(name:"john doe"))
+```
+
+Expecting parameters
+```swift
+EventBus.onMainThread(target, name:"personFetchEvent") { result in
+    let person : Person = result.object as Person
+    println(person.name) // will output "john doe"
+}
+```
+
+## Unregistering
+
+Remove all the observers of the target
+```swift
+EventBus.unregister(target)
+```
+Remove observers of the same name of the target
+```swift
+EventBus.unregister(target, "someEventName")
 ```

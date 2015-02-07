@@ -1,4 +1,4 @@
-# swift-EventBus
+# EventBus
 
 Provides an interface for use the `addObserverForName` safely and easily.
 
@@ -21,7 +21,7 @@ Provides an interface for use the `addObserverForName` safely and easily.
 ## Installation
 
 ```bash
-pod 'swift-EventBus', :git => 'https://github.com/cesarferreira/swift-EventBus.git'
+pod 'EventBus', :git => 'https://github.com/cesarferreira/EventBus.git'
 ```
 
 ## Usage

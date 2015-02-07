@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:EventBus.xcodeproj">
+      location = "self:SwiftEventBus.xcodeproj">
    </FileRef>
 </Workspace>

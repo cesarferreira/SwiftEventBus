@@ -1,10 +1,10 @@
 import Foundation
 
-public class EventBus {
+public class SwiftEventBus {
     
     struct Static {
-        static let instance = EventBus()
-        static let queue = dispatch_queue_create("com.cesarferreira.swift-EventBus", DISPATCH_QUEUE_SERIAL)
+        static let instance = SwiftEventBus()
+        static let queue = dispatch_queue_create("com.cesarferreira.SwiftEventBus", DISPATCH_QUEUE_SERIAL)
     }
     
     struct NamedObserver {
@@ -62,19 +62,19 @@ public class EventBus {
     }
     
     public class func onMainThread(target: AnyObject, name: String, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
-        return EventBus.on(target, name: name, sender: nil, queue: NSOperationQueue.mainQueue(), handler: handler)
+        return SwiftEventBus.on(target, name: name, sender: nil, queue: NSOperationQueue.mainQueue(), handler: handler)
     }
     
     public class func onMainThread(target: AnyObject, name: String, sender: AnyObject?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
-        return EventBus.on(target, name: name, sender: sender, queue: NSOperationQueue.mainQueue(), handler: handler)
+        return SwiftEventBus.on(target, name: name, sender: sender, queue: NSOperationQueue.mainQueue(), handler: handler)
     }
     
     public class func onBackgroundThread(target: AnyObject, name: String, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
-        return EventBus.on(target, name: name, sender: nil, queue: NSOperationQueue(), handler: handler)
+        return SwiftEventBus.on(target, name: name, sender: nil, queue: NSOperationQueue(), handler: handler)
     }
     
     public class func onBackgroundThread(target: AnyObject, name: String, sender: AnyObject?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
-        return EventBus.on(target, name: name, sender: sender, queue: NSOperationQueue(), handler: handler)
+        return SwiftEventBus.on(target, name: name, sender: sender, queue: NSOperationQueue(), handler: handler)
     }
     
     ////////////////////////////////////

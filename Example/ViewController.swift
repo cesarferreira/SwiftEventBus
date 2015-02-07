@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import EventBus
+import SwiftEventBus
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        EventBus.onMainThread(self, name: "someEvent") { _ in
+        SwiftEventBus.onMainThread(self, name: "someEvent") { _ in
             println("I'm triggering due to a eventbus post!")
         }
     }
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
 
     @IBAction func performClick(sender: AnyObject) {
         
-        EventBus.post("someEvent")
+        SwiftEventBus.post("someEvent")
     }
 }
 

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwa-4r-IIa">
+                                <rect key="frame" x="265" y="537" width="70" height="43"/>
+                                <color key="backgroundColor" red="0.0" green="0.41352094779993376" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="43" id="BkX-eP-Ahx"/>
+                                    <constraint firstAttribute="width" constant="70" id="bSf-rK-Cg2"/>
+                                </constraints>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="performClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cl0-kO-Ero"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome guest" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czP-Ud-kii">
+                                <rect key="frame" x="187" y="274" width="226" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="226" id="YTS-hj-li4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="hwa-4r-IIa" secondAttribute="bottom" constant="20" symbolic="YES" id="5IC-1K-THt"/>
+                            <constraint firstItem="hwa-4r-IIa" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CVq-sG-fCw"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="254" id="KPL-lR-QUb"/>
+                            <constraint firstItem="hwa-4r-IIa" firstAttribute="centerX" secondItem="czP-Ud-kii" secondAttribute="centerX" id="dMa-eD-xQW"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="emi-jB-CTl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="czP-Ud-kii" id="Nyw-Ce-5i4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>

@@ -18,7 +18,6 @@ public class SwiftEventBus {
     ////////////////////////////////////
     // Publish
     ////////////////////////////////////
-
     
     public class func post(name: String) {
         NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil)

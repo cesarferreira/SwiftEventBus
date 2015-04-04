@@ -1,6 +1,6 @@
 # SwiftEventBus
 
-Provides an interface for use the `addObserverForName` safely and easily.
+Allows publish-subscribe-style communication between components without requiring the components to explicitly be aware of each other
 
 ## Features
 
@@ -11,12 +11,6 @@ Provides an interface for use the `addObserverForName` safely and easily.
 - [x] is fast
 - [x] is tiny
 - [x] Thread-safe
-
-
-## Requirements
-
-- iOS 8+
-- Xcode 6.1
 
 ## Installation
 
@@ -67,11 +61,11 @@ SwiftEventBus.onMainThread(target, name:"personFetchEvent") { result in
 
 ## Unregistering
 
-Remove all the observers of the target
+Remove all the observers from the target
 ```swift
 SwiftEventBus.unregister(target)
 ```
-Remove observers of the same name of the target
+Remove observers of the same name from the target
 ```swift
 SwiftEventBus.unregister(target, "someEventName")
 ```

@@ -19,19 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Init all the services
         self.subscribeToServices();
 
-        
         return true
     }
-    
-    
+
     func subscribeToServices() {
         LoginService.init();
         // todo - rest of the services
     }
-    
-
-
-   
 
 }
 

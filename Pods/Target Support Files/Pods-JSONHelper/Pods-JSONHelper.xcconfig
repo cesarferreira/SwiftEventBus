@@ -1,0 +1,1 @@
+PODS_JSONHELPER_OTHER_LDFLAGS = -framework "Foundation"

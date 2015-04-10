@@ -1,10 +1,10 @@
 PODS:
-  - Alamofire (1.1.4)
+  - JSONHelper (1.5.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 1.1)
+  - JSONHelper
 
 SPEC CHECKSUMS:
-  Alamofire: 524225da382071ee3e6d0badd0ee4b4dc36740de
+  JSONHelper: 2d7c3b037f29d2dc1f6d18b407cdd7566f0baf83
 
-COCOAPODS: 0.36.0.beta.2
+COCOAPODS: 0.36.3

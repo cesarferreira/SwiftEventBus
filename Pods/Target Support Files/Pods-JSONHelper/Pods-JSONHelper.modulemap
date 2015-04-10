@@ -1,0 +1,6 @@
+framework module JSONHelper {
+  umbrella header "Pods-JSONHelper-umbrella.h"
+
+  export *
+  module * { export * }
+}

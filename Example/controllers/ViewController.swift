@@ -18,16 +18,17 @@ class ViewController: UIViewController {
 
         // Do any additional setup after loading the view, typically from a nib.
         
-        SwiftEventBus.onBackgroundThread(self, name: "login") { result in
+        SwiftEventBus.onMainThread(self, name: "login") { result in
             
-            var p : Person = result.object as Person
+            var p : Person = result.object as! Person
             
             self.welcomeLabel.text = "Welcome \(p.name)"
             
         }
         
         SwiftEventBus.onMainThread(self, name: "loginFail") { _ in
-            // handle erro UI
+            // handle herror on the UI thread
+            print ("ERROR! Login failed");
         }
 
     }

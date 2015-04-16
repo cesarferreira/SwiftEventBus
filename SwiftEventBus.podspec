@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.license = 'MIT'
   s.summary = 'Publish/subscribe event bus optimized for iOS'
   s.homepage = 'https://github.com/cesarferreira/SwiftEventBus'
-  s.social_media_url = 'http://twitter.com/tymonn'
+  s.social_media_url = 'http://twitter.com/cesarmcferreira'
   s.authors = { 'César Ferreira' => 'cesar.manuel.ferreira@gmail.com' }
   s.source = { :git => 'https://github.com/cesarferreira/SwiftEventBus.git', :tag => s.version }
   s.ios.deployment_target = '8.0'

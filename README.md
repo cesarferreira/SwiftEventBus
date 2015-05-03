@@ -63,13 +63,11 @@ SwiftEventBus.onMainThread(target, name:"personFetchEvent") { result in
 
 ### Posting events from the BackgroundThread to the MainThread
 
-Quoting the official Apple documentation:
+Quoting the official Apple [documentation](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Notifications/Articles/Threading.html):
 > Regular notification centers deliver notifications on the thread in which the notification was posted
 
-(for more information: [Delivering Notifications To Particular Threads](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Notifications/Articles/Threading.html))
 
-
-Regarding this limitation [@nunogoncalves](https://github.com/nunogoncalves) implemented this feature and provided a working example:
+Regarding this limitation, [@nunogoncalves](https://github.com/nunogoncalves) implemented the feature and provided a working example:
 
 ```swift
 

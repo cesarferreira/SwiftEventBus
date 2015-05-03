@@ -38,6 +38,37 @@ public class SwiftEventBus {
     public class func post(name: String, sender: AnyObject?, userInfo: [NSObject : AnyObject]?) {
         NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender, userInfo: userInfo)
     }
+    
+    public class func postToMainThread(name: String) {
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil)
+        }
+    }
+    
+    public class func postToMainThread(name: String, sender: AnyObject?) {
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender)
+        }
+    }
+    
+    public class func postToMainThread(name: String, sender: NSObject?) {
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender)
+        }
+    }
+    
+    public class func postToMainThread(name: String, userInfo: [NSObject : AnyObject]?) {
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil, userInfo: userInfo)
+        }
+    }
+    
+    public class func postToMainThread(name: String, sender: AnyObject?, userInfo: [NSObject : AnyObject]?) {
+        dispatch_async(dispatch_get_main_queue()) {
+            NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender, userInfo: userInfo)
+        }
+    }
+    
 
     
     ////////////////////////////////////

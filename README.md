@@ -43,6 +43,8 @@ Post an event from any part of your code. All subscribers matching the event typ
 SwiftEventBus.post("someEventName")
 ```
 
+--
+
 ### Eventbus with parameters
 
 Post event
@@ -58,6 +60,43 @@ SwiftEventBus.onMainThread(target, name:"personFetchEvent") { result in
     println(person.name) // will output "john doe"
 }
 ```
+
+### Posting events from the BackgroundThread to the MainThread
+
+Quoting the official Apple documentation:
+> Regular notification centers deliver notifications on the thread in which the notification was posted
+
+(for more information: [Delivering Notifications To Particular Threads](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/Notifications/Articles/Threading.html))
+
+
+Regarding this limitation [@nunogoncalves](https://github.com/nunogoncalves) implemented this feature and provided a working example:
+
+```swift
+
+@IBAction func clicked(sender: AnyObject) {
+     count++
+     SwiftEventBus.post("doStuffOnBackground")
+ }
+
+ @IBOutlet weak var textField: UITextField!
+
+ var count = 0
+
+ override func viewDidLoad() {
+     super.viewDidLoad()
+
+     SwiftEventBus.onBackgroundThread(self, name: "doStuffOnBackground") { notification in
+         println("doing stuff in background thread")
+         SwiftEventBus.postToMainThread("updateText")
+     }
+
+     SwiftEventBus.onMainThread(self, name: "updateText") { notification in
+         self.textField.text = "\(self.count)"
+     }
+
+```
+--
+
 
 ## Unregistering
 

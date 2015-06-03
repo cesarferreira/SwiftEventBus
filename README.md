@@ -14,7 +14,10 @@ Allows publish-subscribe-style communication between components without requirin
 
 ## Installation
 
+Since it's been changed in a newer beta of cocoapods.
+
 ```bash
+use_frameworks!
 pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
 ```
 

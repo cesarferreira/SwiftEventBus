@@ -22,7 +22,7 @@ pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git
 
 ### Carthage
 ```bash
-github "cesarferreira/SwiftEventBus" == 1.1
+github "cesarferreira/SwiftEventBus" == 1.1.0
 ```
 
 ## Usage

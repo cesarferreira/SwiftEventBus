@@ -1,5 +1,15 @@
 import Foundation
 
+public protocol NameCompatible {
+    var seb_name: String { get }
+}
+
+extension String: NameCompatible {
+    public var seb_name: String {
+        return self
+    }
+}
+
 public class SwiftEventBus {
     
     struct Static {
@@ -9,7 +19,7 @@ public class SwiftEventBus {
     
     struct NamedObserver {
         let observer: NSObjectProtocol
-        let name: String
+        let name: NameCompatible
     }
     
     var cache = [UInt:[NamedObserver]]()
@@ -19,53 +29,53 @@ public class SwiftEventBus {
     // Publish
     ////////////////////////////////////
     
-    public class func post(name: String) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil)
+    public class func post(name: NameCompatible) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: nil)
     }
     
-    public class func post(name: String, sender: AnyObject?) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender)
+    public class func post(name: NameCompatible, sender: AnyObject?) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: sender)
     }
     
-    public class func post(name: String, sender: NSObject?) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender)
+    public class func post(name: NameCompatible, sender: NSObject?) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: sender)
     }
     
-    public class func post(name: String, userInfo: [NSObject : AnyObject]?) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil, userInfo: userInfo)
+    public class func post(name: NameCompatible, userInfo: [NSObject : AnyObject]?) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: nil, userInfo: userInfo)
     }
     
-    public class func post(name: String, sender: AnyObject?, userInfo: [NSObject : AnyObject]?) {
-        NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender, userInfo: userInfo)
+    public class func post(name: NameCompatible, sender: AnyObject?, userInfo: [NSObject : AnyObject]?) {
+        NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: sender, userInfo: userInfo)
     }
     
-    public class func postToMainThread(name: String) {
+    public class func postToMainThread(name: NameCompatible) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil)
+            NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: nil)
         }
     }
     
-    public class func postToMainThread(name: String, sender: AnyObject?) {
+    public class func postToMainThread(name: NameCompatible, sender: AnyObject?) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender)
+            NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: sender)
         }
     }
     
-    public class func postToMainThread(name: String, sender: NSObject?) {
+    public class func postToMainThread(name: NameCompatible, sender: NSObject?) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender)
+            NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: sender)
         }
     }
     
-    public class func postToMainThread(name: String, userInfo: [NSObject : AnyObject]?) {
+    public class func postToMainThread(name: NameCompatible, userInfo: [NSObject : AnyObject]?) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSNotificationCenter.defaultCenter().postNotificationName(name, object: nil, userInfo: userInfo)
+            NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: nil, userInfo: userInfo)
         }
     }
     
-    public class func postToMainThread(name: String, sender: AnyObject?, userInfo: [NSObject : AnyObject]?) {
+    public class func postToMainThread(name: NameCompatible, sender: AnyObject?, userInfo: [NSObject : AnyObject]?) {
         dispatch_async(dispatch_get_main_queue()) {
-            NSNotificationCenter.defaultCenter().postNotificationName(name, object: sender, userInfo: userInfo)
+            NSNotificationCenter.defaultCenter().postNotificationName(name.seb_name, object: sender, userInfo: userInfo)
         }
     }
     
@@ -75,9 +85,9 @@ public class SwiftEventBus {
     // Subscribe
     ////////////////////////////////////
     
-    public class func on(target: AnyObject, name: String, sender: AnyObject?, queue: NSOperationQueue?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
+    public class func on(target: AnyObject, name: NameCompatible, sender: AnyObject?, queue: NSOperationQueue?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
         let id = ObjectIdentifier(target).uintValue
-        let observer = NSNotificationCenter.defaultCenter().addObserverForName(name, object: sender, queue: queue, usingBlock: handler)
+        let observer = NSNotificationCenter.defaultCenter().addObserverForName(name.seb_name, object: sender, queue: queue, usingBlock: handler)
         let namedObserver = NamedObserver(observer: observer, name: name)
         
         dispatch_sync(Static.queue) {
@@ -91,19 +101,19 @@ public class SwiftEventBus {
         return observer
     }
     
-    public class func onMainThread(target: AnyObject, name: String, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
+    public class func onMainThread(target: AnyObject, name: NameCompatible, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
         return SwiftEventBus.on(target, name: name, sender: nil, queue: NSOperationQueue.mainQueue(), handler: handler)
     }
     
-    public class func onMainThread(target: AnyObject, name: String, sender: AnyObject?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
+    public class func onMainThread(target: AnyObject, name: NameCompatible, sender: AnyObject?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
         return SwiftEventBus.on(target, name: name, sender: sender, queue: NSOperationQueue.mainQueue(), handler: handler)
     }
     
-    public class func onBackgroundThread(target: AnyObject, name: String, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
+    public class func onBackgroundThread(target: AnyObject, name: NameCompatible, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
         return SwiftEventBus.on(target, name: name, sender: nil, queue: NSOperationQueue(), handler: handler)
     }
     
-    public class func onBackgroundThread(target: AnyObject, name: String, sender: AnyObject?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
+    public class func onBackgroundThread(target: AnyObject, name: NameCompatible, sender: AnyObject?, handler: ((NSNotification!) -> Void)) -> NSObjectProtocol {
         return SwiftEventBus.on(target, name: name, sender: sender, queue: NSOperationQueue(), handler: handler)
     }
     
@@ -124,14 +134,14 @@ public class SwiftEventBus {
         }
     }
     
-    public class func unregister(target: AnyObject, name: String) {
+    public class func unregister(target: AnyObject, name: NameCompatible) {
         let id = ObjectIdentifier(target).uintValue
         let center = NSNotificationCenter.defaultCenter()
         
         dispatch_sync(Static.queue) {
             if let namedObservers = Static.instance.cache[id] {
                 Static.instance.cache[id] = namedObservers.filter({ (namedObserver: NamedObserver) -> Bool in
-                    if namedObserver.name == name {
+                    if namedObserver.name.seb_name == name.seb_name {
                         center.removeObserver(namedObserver.observer)
                         return false
                     } else {

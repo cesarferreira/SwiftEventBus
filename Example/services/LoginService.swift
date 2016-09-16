@@ -8,7 +8,6 @@
 
 import Foundation
 import SwiftEventBus
-import Alamofire
 
 class LoginService {
     init() {
@@ -17,36 +16,16 @@ class LoginService {
          
             println("Starting request...")
             
-            // fetch data from webservice
-            Alamofire.request(.GET, "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=funny+cat")
-                .responseJSON { (_, _, JSON, _) in
-                    // todo - parse json into an object
-
-                    let variavel: AnyObject? = JSON
-
-                    println(variavel)
-                    
-                    if (variavel != nil) {
-                        // in case of success
-                        SwiftEventBus.post("login", sender: Person(name: "cesar ferreira"))
-
-                    } else {
-                        // in case of failure
-
-                        SwiftEventBus.post("loginFail")
-
-                    }
-                    
-                  
-                    
+            var useless = 0
+            
+            for index in 1...5000 {
+                useless++
             }
             
+            SwiftEventBus.post("login", sender: Person(name: "cesar ferreira"))
             
-
             
         }
-
-        
    
     }
 }

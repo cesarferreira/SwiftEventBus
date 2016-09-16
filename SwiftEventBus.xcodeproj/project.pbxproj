@@ -382,6 +382,7 @@
 		6195C53A1A85B9AA00E83058 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = cesarferreira;
 				TargetAttributes = {
@@ -390,9 +391,11 @@
 					};
 					6195C5421A85B9AB00E83058 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 					6195C54D1A85B9AB00E83058 = {
 						CreatedOnToolsVersion = 6.1.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -737,6 +740,7 @@
 				PRODUCT_NAME = SwiftEventBus;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -754,6 +758,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = SwiftEventBus;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -771,6 +776,7 @@
 				INFOPLIST_FILE = "SwiftEventBusTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = SwiftEventBusTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -784,6 +790,7 @@
 				INFOPLIST_FILE = "SwiftEventBusTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = SwiftEventBusTests;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

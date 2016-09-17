@@ -12,18 +12,19 @@ import SwiftEventBus
 class LoginService {
     init() {
         
-        SwiftEventBus.onBackgroundThread(self, name:"loginCall") { _ in
+        SwiftEventBus.onMainThread(self, name:"loginCall") { _ in
          
-            println("Starting request...")
+            print("Starting request...")
             
             var useless = 0
             
-            for index in 1...5000 {
-                useless++
+            for _ in 1...50000 {
+                useless += 1
             }
-            
+                        
+            print("Request finished...")
+
             SwiftEventBus.post("login", sender: Person(name: "cesar ferreira"))
-            
             
         }
    

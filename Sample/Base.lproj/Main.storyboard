@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Example" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Sample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -27,26 +27,26 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwa-4r-IIa">
                                 <color key="backgroundColor" red="0.0" green="0.41352094779993376" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="Hdu-QE-WSs"/>
-                                    <constraint firstAttribute="width" constant="70" id="UXb-2d-BBb"/>
+                                    <constraint firstAttribute="height" constant="43" id="7Ae-XW-73X"/>
+                                    <constraint firstAttribute="width" constant="70" id="Fbh-4i-Vwy"/>
                                 </constraints>
                                 <state key="normal" title="Button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="performClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cl0-kO-Ero"/>
+                                    <action selector="doClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Z3M-oz-UUV"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="hwa-4r-IIa" secondAttribute="bottom" constant="20" symbolic="YES" id="4us-bh-cD8"/>
-                            <constraint firstItem="czP-Ud-kii" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="58" id="Fxa-Ac-zS7"/>
-                            <constraint firstItem="hwa-4r-IIa" firstAttribute="centerX" secondItem="czP-Ud-kii" secondAttribute="centerX" id="H5k-4J-COk"/>
-                            <constraint firstItem="czP-Ud-kii" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ZCQ-Xf-OIb"/>
-                            <constraint firstItem="czP-Ud-kii" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="287" id="g9e-AC-jgi"/>
-                            <constraint firstItem="czP-Ud-kii" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oLM-lr-NT3"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="287" id="7yU-zZ-4Al"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="ATy-0Y-s2C"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="centerX" secondItem="hwa-4r-IIa" secondAttribute="centerX" id="Eyb-kH-8r2"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JL9-Cg-ofc"/>
+                            <constraint firstAttribute="bottom" secondItem="hwa-4r-IIa" secondAttribute="bottom" constant="20" symbolic="YES" id="Oyd-Vx-3Ub"/>
+                            <constraint firstItem="czP-Ud-kii" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="58" id="oRc-5A-XPc"/>
                         </constraints>
                     </view>
                     <connections>

@@ -17,19 +17,10 @@
 		613A66A61A85BAD80046DEB8 /* SwiftEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613A66A51A85BAD80046DEB8 /* SwiftEventBus.swift */; };
 		613A66AE1A85BCE40046DEB8 /* SwiftEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6195C5431A85B9AB00E83058 /* SwiftEventBus.framework */; };
 		6195C5491A85B9AB00E83058 /* SwiftEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = 6195C5481A85B9AB00E83058 /* SwiftEventBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		6195C54F1A85B9AB00E83058 /* SwiftEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6195C5431A85B9AB00E83058 /* SwiftEventBus.framework */; };
-		6195C5561A85B9AB00E83058 /* EventBusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6195C5551A85B9AB00E83058 /* EventBusTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		613A66AC1A85BC770046DEB8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 6195C53A1A85B9AA00E83058 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6195C5421A85B9AB00E83058;
-			remoteInfo = EventBus;
-		};
-		6195C5501A85B9AB00E83058 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6195C53A1A85B9AA00E83058 /* Project object */;
 			proxyType = 1;
@@ -52,7 +43,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		158700A83D7FBBA5946F29F4 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		612021F31A88CD570049DA2A /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		612021F61A88CDA80049DA2A /* LoginService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
 		613A66831A85BA390046DEB8 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,16 +53,9 @@
 		613A668E1A85BA390046DEB8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		613A66911A85BA390046DEB8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		613A66A51A85BAD80046DEB8 /* SwiftEventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftEventBus.swift; sourceTree = "<group>"; };
-		6191EBC01AD7E3AE00BB7B37 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
-		6191EBC21AD7E3D000BB7B37 /* Pods.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods.framework; path = "Pods/../build/Debug-iphoneos/Pods.framework"; sourceTree = "<group>"; };
 		6195C5431A85B9AB00E83058 /* SwiftEventBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftEventBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6195C5471A85B9AB00E83058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6195C5481A85B9AB00E83058 /* SwiftEventBus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftEventBus.h; sourceTree = "<group>"; };
-		6195C54E1A85B9AB00E83058 /* SwiftEventBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftEventBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6195C5541A85B9AB00E83058 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6195C5551A85B9AB00E83058 /* EventBusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventBusTests.swift; sourceTree = "<group>"; };
-		83CD738C74C64372C6858E71 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		F7D82590F8C5F24BE5317715 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,14 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6195C54B1A85B9AB00E83058 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6195C54F1A85B9AB00E83058 /* SwiftEventBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,11 +136,8 @@
 			isa = PBXGroup;
 			children = (
 				6195C5451A85B9AB00E83058 /* SwiftEventBus */,
-				6195C5521A85B9AB00E83058 /* SwiftEventBusTests */,
 				613A66841A85BA390046DEB8 /* Example */,
 				6195C5441A85B9AB00E83058 /* Products */,
-				CE592E1FB23AC1C56647CAC8 /* Pods */,
-				E6A35EA15BB88700A185CC56 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -173,7 +145,6 @@
 			isa = PBXGroup;
 			children = (
 				6195C5431A85B9AB00E83058 /* SwiftEventBus.framework */,
-				6195C54E1A85B9AB00E83058 /* SwiftEventBusTests.xctest */,
 				613A66831A85BA390046DEB8 /* Example.app */,
 			);
 			name = Products;
@@ -197,48 +168,12 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		6195C5521A85B9AB00E83058 /* SwiftEventBusTests */ = {
-			isa = PBXGroup;
-			children = (
-				6195C5551A85B9AB00E83058 /* EventBusTests.swift */,
-				6195C5531A85B9AB00E83058 /* Supporting Files */,
-			);
-			path = SwiftEventBusTests;
-			sourceTree = "<group>";
-		};
-		6195C5531A85B9AB00E83058 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6195C5541A85B9AB00E83058 /* Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		61D3065A1A890C8300039AA8 /* delegates */ = {
 			isa = PBXGroup;
 			children = (
 				613A66871A85BA390046DEB8 /* AppDelegate.swift */,
 			);
 			name = delegates;
-			sourceTree = "<group>";
-		};
-		CE592E1FB23AC1C56647CAC8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				158700A83D7FBBA5946F29F4 /* Pods.debug.xcconfig */,
-				83CD738C74C64372C6858E71 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		E6A35EA15BB88700A185CC56 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6191EBC21AD7E3D000BB7B37 /* Pods.framework */,
-				6191EBC01AD7E3AE00BB7B37 /* Alamofire.framework */,
-				F7D82590F8C5F24BE5317715 /* Pods.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,7 +217,6 @@
 				6195C53F1A85B9AB00E83058 /* Frameworks */,
 				6195C5401A85B9AB00E83058 /* Headers */,
 				6195C5411A85B9AB00E83058 /* Resources */,
-				F10683C1F4C45113BF3787DF /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -293,24 +227,6 @@
 			productReference = 6195C5431A85B9AB00E83058 /* SwiftEventBus.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		6195C54D1A85B9AB00E83058 /* SwiftEventBusTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6195C55C1A85B9AB00E83058 /* Build configuration list for PBXNativeTarget "SwiftEventBusTests" */;
-			buildPhases = (
-				6195C54A1A85B9AB00E83058 /* Sources */,
-				6195C54B1A85B9AB00E83058 /* Frameworks */,
-				6195C54C1A85B9AB00E83058 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				6195C5511A85B9AB00E83058 /* PBXTargetDependency */,
-			);
-			name = SwiftEventBusTests;
-			productName = EventBusTests;
-			productReference = 6195C54E1A85B9AB00E83058 /* SwiftEventBusTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -318,17 +234,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = cesarferreira;
 				TargetAttributes = {
 					613A66821A85BA390046DEB8 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
 					6195C5421A85B9AB00E83058 = {
-						CreatedOnToolsVersion = 6.1.1;
-						LastSwiftMigration = 0800;
-					};
-					6195C54D1A85B9AB00E83058 = {
 						CreatedOnToolsVersion = 6.1.1;
 						LastSwiftMigration = 0800;
 					};
@@ -348,7 +260,6 @@
 			projectRoot = "";
 			targets = (
 				6195C5421A85B9AB00E83058 /* SwiftEventBus */,
-				6195C54D1A85B9AB00E83058 /* SwiftEventBusTests */,
 				613A66821A85BA390046DEB8 /* Example */,
 			);
 		};
@@ -372,32 +283,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6195C54C1A85B9AB00E83058 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		F10683C1F4C45113BF3787DF /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		613A667F1A85BA390046DEB8 /* Sources */ = {
@@ -419,14 +305,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		6195C54A1A85B9AB00E83058 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6195C5561A85B9AB00E83058 /* EventBusTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -434,11 +312,6 @@
 			isa = PBXTargetDependency;
 			target = 6195C5421A85B9AB00E83058 /* SwiftEventBus */;
 			targetProxy = 613A66AC1A85BC770046DEB8 /* PBXContainerItemProxy */;
-		};
-		6195C5511A85B9AB00E83058 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6195C5421A85B9AB00E83058 /* SwiftEventBus */;
-			targetProxy = 6195C5501A85B9AB00E83058 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -470,7 +343,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -479,6 +351,7 @@
 				);
 				INFOPLIST_FILE = "Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cesarferreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -489,11 +362,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/build/Debug-iphoneos/Pods",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
 				);
 				INFOPLIST_FILE = "Example/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cesarferreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -511,16 +384,20 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -557,8 +434,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -567,6 +446,7 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -576,6 +456,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -585,9 +466,9 @@
 		};
 		6195C55A1A85B9AB00E83058 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 158700A83D7FBBA5946F29F4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -595,6 +476,7 @@
 				INFOPLIST_FILE = "SwiftEventBus/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cesarferreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SwiftEventBus;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -604,9 +486,9 @@
 		};
 		6195C55B1A85B9AB00E83058 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83CD738C74C64372C6858E71 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -614,40 +496,9 @@
 				INFOPLIST_FILE = "SwiftEventBus/Supporting Files/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cesarferreira.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = SwiftEventBus;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		6195C55D1A85B9AB00E83058 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SwiftEventBusTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SwiftEventBusTests;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		6195C55E1A85B9AB00E83058 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "SwiftEventBusTests/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = SwiftEventBusTests;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -678,15 +529,6 @@
 			buildConfigurations = (
 				6195C55A1A85B9AB00E83058 /* Debug */,
 				6195C55B1A85B9AB00E83058 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6195C55C1A85B9AB00E83058 /* Build configuration list for PBXNativeTarget "SwiftEventBusTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6195C55D1A85B9AB00E83058 /* Debug */,
-				6195C55E1A85B9AB00E83058 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

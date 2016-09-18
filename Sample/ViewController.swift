@@ -37,7 +37,13 @@ class ViewController: UIViewController {
     @IBAction func doClick(_ sender: AnyObject) {
         self.welcomeLabel.text = "Loading..."
         
-        SwiftEventBus.post("loginCall")
+//        SwiftEventBus.post("loginCall")
+        let size = Size(width: 20.0, height: 20.0)
+        
+        struct A {}
+        SwiftEventBus.post("loginCall", sender: A())
+
+        
     }
 }
 

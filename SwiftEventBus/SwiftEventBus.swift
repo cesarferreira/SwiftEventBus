@@ -23,10 +23,15 @@ open class SwiftEventBus {
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: nil)
     }
     
-    open class func post(_ name: String, sender: AnyObject?) {
+    open class func post(_ name: String, sender: Any?) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: sender)
     }
     
+//    open class func post(_ name: String, sender: Any?) {
+//        print("HOYOOOOOOO")
+////        NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: sender)
+//    }
+//    
     open class func post(_ name: String, sender: NSObject?) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: sender)
     }

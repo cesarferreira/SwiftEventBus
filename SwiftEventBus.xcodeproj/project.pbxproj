@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB47FE051D8ED94900A33ED7 /* Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47FE041D8ED94800A33ED7 /* Size.swift */; };
 		DBCE8D4F1D8DD5160012B477 /* SwiftEventBus.h in Headers */ = {isa = PBXBuildFile; fileRef = DBCE8D4D1D8DD5160012B477 /* SwiftEventBus.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DBCE8D561D8DD63D0012B477 /* SwiftEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE8D551D8DD63D0012B477 /* SwiftEventBus.swift */; };
 		DBCE8D5E1D8DD8890012B477 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE8D5D1D8DD8890012B477 /* AppDelegate.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB47FE041D8ED94800A33ED7 /* Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Size.swift; sourceTree = "<group>"; };
 		DBCE8D4A1D8DD5160012B477 /* SwiftEventBus.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftEventBus.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBCE8D4D1D8DD5160012B477 /* SwiftEventBus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftEventBus.h; sourceTree = "<group>"; };
 		DBCE8D4E1D8DD5160012B477 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				DBCE8D641D8DD88A0012B477 /* Assets.xcassets */,
 				DBCE8D661D8DD88A0012B477 /* LaunchScreen.storyboard */,
 				DBCE8D691D8DD88A0012B477 /* Info.plist */,
+				DB47FE041D8ED94800A33ED7 /* Size.swift */,
 			);
 			path = Sample;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DBCE8D601D8DD88A0012B477 /* ViewController.swift in Sources */,
+				DB47FE051D8ED94900A33ED7 /* Size.swift in Sources */,
 				DBCE8D6F1D8DFAFA0012B477 /* LoginService.swift in Sources */,
 				DBCE8D701D8DFAFA0012B477 /* Person.swift in Sources */,
 				DBCE8D5E1D8DD8890012B477 /* AppDelegate.swift in Sources */,
@@ -433,6 +437,7 @@
 				DBCE8D541D8DD5160012B477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DBCE8D6A1D8DD88A0012B477 /* Build configuration list for PBXNativeTarget "Sample" */ = {
 			isa = XCConfigurationList;
@@ -441,6 +446,7 @@
 				DBCE8D6C1D8DD88A0012B477 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

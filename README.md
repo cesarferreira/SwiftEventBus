@@ -17,7 +17,7 @@ Allows publish-subscribe-style communication between components without requirin
 ### Cocoapods
 
 ```bash
-pod 'SwiftEventBus', '~> 2.0.0', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
+pod 'SwiftEventBus', :git => 'https://github.com/cesarferreira/SwiftEventBus.git'
 ```
 
 ### Carthage

@@ -40,7 +40,12 @@ class ViewController: UIViewController {
 //        SwiftEventBus.post("loginCall")
         let size = Size(width: 20.0, height: 20.0)
         
-        struct A {}
+        class A {}
+        struct B {}
+        
+        SwiftEventBus.post("oi", sender: B())
+        SwiftEventBus.post("oi", sender: A())
+        
         SwiftEventBus.post("loginCall", sender: A())
 
         

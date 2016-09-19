@@ -27,8 +27,8 @@ github "cesarferreira/SwiftEventBus" == 2.0.1
 
 ### Versions
 
+- `2.0.1` for `swift 3`
 - `1.1.0` for `swift 2.2`
-- `2.0.0` for `swift 3`
 
 ## Usage
 ### 1: Prepare subscribers ###

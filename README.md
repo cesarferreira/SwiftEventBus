@@ -31,7 +31,7 @@ github "cesarferreira/SwiftEventBus" == 2.2.0
 - `1.1.0` for `swift 2.2`
 
 ## Usage
-### 1: Prepare subscribers ###
+### 1 - Prepare subscribers ###
 
 Subscribers implement event handling methods that will be called when an event is received.
 
@@ -47,7 +47,7 @@ SwiftEventBus.onBackgroundThread(target, name:"someEventName") { result in
 }
 ```
 
-### 2: Post events ###
+### 2 - Post events ###
 
 Post an event from any part of your code. All subscribers matching the event type will receive it.
 

@@ -18,12 +18,8 @@ open class SwiftEventBus {
     ////////////////////////////////////
     // Publish
     ////////////////////////////////////
-    
-    open class func post(_ name: String) {
-        NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: nil)
-    }
-    
-    open class func post(_ name: String, sender: Any?) {
+        
+    open class func post(_ name: String, sender: Any? = nil) {
         NotificationCenter.default.post(name: Notification.Name(rawValue: name), object: sender)
     }
     

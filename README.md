@@ -103,7 +103,14 @@ Regarding this limitation, [@nunogoncalves](https://github.com/nunogoncalves) im
      SwiftEventBus.onMainThread(self, name: "updateText") { notification in
          self.textField.text = "\(self.count)"
      }
+}
 
+//Perhaps on viewDidDisappear depending on your needs
+override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(animated)
+    
+    SwiftEventBus.unregister(self)
+}
 ```
 --
 

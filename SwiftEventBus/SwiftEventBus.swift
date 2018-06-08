@@ -57,7 +57,7 @@ open class SwiftEventBus {
     ////////////////////////////////////
 
     @discardableResult
-    open class func on(_ target: AnyObject, name: String, sender: Any? = nil, queue: OperationQueue?, handler: @escaping ((Notification!) -> Void)) -> NSObjectProtocol {
+    open class func on(_ target: AnyObject, name: String, sender: Any? = nil, queue: OperationQueue?, handler: @escaping ((Notification?) -> Void)) -> NSObjectProtocol {
         let id = UInt(bitPattern: ObjectIdentifier(target))
         let observer = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: name), object: sender, queue: queue, using: handler)
         let namedObserver = NamedObserver(observer: observer, name: name)
@@ -74,12 +74,12 @@ open class SwiftEventBus {
     }
 
     @discardableResult
-    open class func onMainThread(_ target: AnyObject, name: String, sender: Any? = nil, handler: @escaping ((Notification!) -> Void)) -> NSObjectProtocol {
+    open class func onMainThread(_ target: AnyObject, name: String, sender: Any? = nil, handler: @escaping ((Notification?) -> Void)) -> NSObjectProtocol {
         return SwiftEventBus.on(target, name: name, sender: sender, queue: OperationQueue.main, handler: handler)
     }
 
     @discardableResult
-    open class func onBackgroundThread(_ target: AnyObject, name: String, sender: Any? = nil, handler: @escaping ((Notification!) -> Void)) -> NSObjectProtocol {
+    open class func onBackgroundThread(_ target: AnyObject, name: String, sender: Any? = nil, handler: @escaping ((Notification?) -> Void)) -> NSObjectProtocol {
         return SwiftEventBus.on(target, name: name, sender: sender, queue: OperationQueue(), handler: handler)
     }
 

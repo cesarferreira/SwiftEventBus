@@ -1,8 +1,8 @@
 # SwiftEventBus
-[![Language](https://img.shields.io/badge/Swift-5.0-orange.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
-[![Language](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
-[![Language](https://img.shields.io/badge/Swift-3.0-orange.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
-[![Language](https://img.shields.io/badge/Swift-2.2-orange.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
+[![Language](https://img.shields.io/badge/Swift-5.0-green.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
+[![Language](https://img.shields.io/badge/Swift-4.2-green.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
+[![Language](https://img.shields.io/badge/Swift-3.0-green.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
+[![Language](https://img.shields.io/badge/Swift-2.2-green.svg?style=flat)](http://cocoapods.org/pods/SwiftEventBus)
 
 Allows publish-subscribe-style communication between components without requiring the components to explicitly be aware of each other
 

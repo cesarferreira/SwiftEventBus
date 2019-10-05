@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         
         SwiftEventBus.onMainThread(self, name: "login") { result in
             
-            let p : Person = result?.object as! Person
+            let p : Person = result.object as! Person
             
             self.welcomeLabel.text = "Welcome \(p.name)"
             

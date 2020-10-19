@@ -4,7 +4,7 @@ import PackageDescription
 
 let package = Package(name: "SwiftEventBus",
                       platforms: [.macOS(.v10_10),
-                                  .iOS(.v8)],
+                                  .iOS(.v9)],
                       
                       products: [.library(name: "SwiftEventBus",
                                           targets: ["SwiftEventBus"])],

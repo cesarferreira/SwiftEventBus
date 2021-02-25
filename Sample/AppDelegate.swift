@@ -10,11 +10,10 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         // Override point for customization after application launch.
         self.subscribeToServices()
         
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let _ = LoginService.init()
         // todo - rest of the services
     }
-
-
+    
+    
 }
 

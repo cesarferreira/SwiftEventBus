@@ -10,7 +10,7 @@ import UIKit
 import SwiftEventBus
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var welcomeLabel: UILabel!
     
     override func viewDidLoad() {

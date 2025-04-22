@@ -5,8 +5,7 @@ import PackageDescription
 let package = Package(
     name: "SwiftEventBus",
     platforms: [
-        .macOS(.v10_10),
-        .iOS(.v10)
+        .iOS(.v13)
     ],
     
     products: [.library(

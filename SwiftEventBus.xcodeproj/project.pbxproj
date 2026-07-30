@@ -16,6 +16,8 @@
 		DBCE8D681D8DD88A0012B477 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBCE8D661D8DD88A0012B477 /* LaunchScreen.storyboard */; };
 		DBCE8D6F1D8DFAFA0012B477 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE8D6D1D8DFAFA0012B477 /* LoginService.swift */; };
 		DBCE8D701D8DFAFA0012B477 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCE8D6E1D8DFAFA0012B477 /* Person.swift */; };
+		A1B2C3D41D8E10010012B477 /* SwiftEventBus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBCE8D4A1D8DD5160012B477 /* SwiftEventBus.framework */; };
+		A1B2C3D51D8E10010012B477 /* SwiftEventBus.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DBCE8D4A1D8DD5160012B477 /* SwiftEventBus.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +48,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A1B2C3D41D8E10010012B477 /* SwiftEventBus.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXContainerItemProxy section */
+		A1B2C3D71D8E10010012B477 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DBCE8D411D8DD5160012B477 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DBCE8D491D8DD5160012B477;
+			remoteInfo = SwiftEventBus;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A1B2C3D61D8E10010012B477 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A1B2C3D51D8E10010012B477 /* SwiftEventBus.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXGroup section */
 		DBCE8D401D8DD5160012B477 = {
@@ -134,10 +161,12 @@
 				DBCE8D571D8DD8890012B477 /* Sources */,
 				DBCE8D581D8DD8890012B477 /* Frameworks */,
 				DBCE8D591D8DD8890012B477 /* Resources */,
+				A1B2C3D61D8E10010012B477 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A1B2C3D81D8E10010012B477 /* PBXTargetDependency */,
 			);
 			name = Sample;
 			productName = Sample;
@@ -145,6 +174,14 @@
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
+
+/* Begin PBXTargetDependency section */
+		A1B2C3D81D8E10010012B477 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DBCE8D491D8DD5160012B477 /* SwiftEventBus */;
+			targetProxy = A1B2C3D71D8E10010012B477 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXProject section */
 		DBCE8D411D8DD5160012B477 /* Project object */ = {

@@ -31,3 +31,18 @@ jobs:
             -configuration Release \
             CODE_SIGNING_ALLOWED=NO \
             build
+
+  sample-app:
+    name: Sample iOS app
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build Sample for iOS Simulator
+        run: |
+          xcodebuild \
+            -project SwiftEventBus.xcodeproj \
+            -scheme Sample \
+            -destination 'generic/platform=iOS Simulator' \
+            -configuration Debug \
+            CODE_SIGNING_ALLOWED=NO \
+            build

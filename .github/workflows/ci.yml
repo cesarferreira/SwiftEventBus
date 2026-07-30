@@ -44,27 +44,28 @@ jobs:
           DERIVED_DATA="$RUNNER_TEMP/DerivedData"
           LOG_FILE="$RUNNER_TEMP/sample-smoke.log"
 
-          DESTINATION_LINE=$(xcodebuild \
+          DESTINATIONS=$(xcodebuild \
             -project SwiftEventBus.xcodeproj \
             -scheme Sample \
-            -showdestinations 2>/dev/null \
-            | grep "platform:iOS Simulator" \
-            | grep "name:iPhone 16" \
-            | head -1)
+            -showdestinations 2>/dev/null || true)
 
-          if [ -z "$DESTINATION_LINE" ]; then
-            DESTINATION_LINE=$(xcodebuild \
-              -project SwiftEventBus.xcodeproj \
-              -scheme Sample \
-              -showdestinations 2>/dev/null \
-              | grep "platform:iOS Simulator" \
-              | grep "name:iPhone" \
-              | head -1)
-          fi
+          echo "$DESTINATIONS" | head -20
 
-          SIM_ID=$(echo "$DESTINATION_LINE" | sed -n 's/.*id:\([A-F0-9-]*\).*/\1/p')
+          SIM_ID=$(echo "$DESTINATIONS" | ruby - <<'RUBY'
+          lines = STDIN.each_line.map(&:strip)
+          preferred = lines.find { |l| l.include?("platform:iOS Simulator") && l.include?("name:iPhone 16") && !l.include?("placeholder") }
+          preferred ||= lines.find { |l| l.include?("platform:iOS Simulator") && l.include?("name:iPhone") && !l.include?("placeholder") }
+          preferred ||= lines.find { |l| l.include?("platform:iOS Simulator") && !l.include?("placeholder") }
+          if preferred&.match(/id:([A-F0-9-]+)/)
+            puts $1
+          else
+            warn "No simulator destination found"
+            exit 1
+          end
+          RUBY
+          )
+
           DESTINATION="platform=iOS Simulator,id=${SIM_ID}"
-
           echo "Using simulator destination: $DESTINATION"
 
           xcodebuild \
@@ -84,17 +85,10 @@ jobs:
           xcrun simctl bootstatus "$SIM_ID" -b
           xcrun simctl install "$SIM_ID" "$APP_PATH"
 
-          set +e
-          timeout 25 xcrun simctl launch --console "$SIM_ID" cesarferreira.Sample -SmokeTest 2>&1 | tee "$LOG_FILE"
-          LAUNCH_STATUS=${PIPESTATUS[0]}
-          set -e
+          xcrun simctl launch "$SIM_ID" cesarferreira.Sample -SmokeTest >/dev/null
+          sleep 12
 
-          if [ "$LAUNCH_STATUS" -eq 124 ]; then
-            echo "Simulator launch timed out after posting smoke events (expected)."
-          elif [ "$LAUNCH_STATUS" -ne 0 ]; then
-            echo "Simulator launch failed with status $LAUNCH_STATUS"
-            exit "$LAUNCH_STATUS"
-          fi
+          xcrun simctl spawn "$SIM_ID" log show --style compact --last 2m 2>/dev/null | tee "$LOG_FILE"
 
           grep -q "Starting request" "$LOG_FILE"
           grep -q "Request finished" "$LOG_FILE"

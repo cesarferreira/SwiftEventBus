@@ -57,9 +57,8 @@ jobs:
           APP_PATH=$(find "$DERIVED_DATA" -path '*-iphonesimulator/Sample.app' -type d | head -1)
           test -d "$APP_PATH"
 
-          SIM_ID=$(xcrun simctl list devices available -j | ruby - <<'RUBY'
-          require "json"
-          data = JSON.parse(STDIN.read)
+          SIM_ID=$(ruby -rjson -e '
+          data = JSON.parse(`xcrun simctl list devices available -j`)
           data.fetch("devices").each do |runtime, devices|
             next unless runtime.include?("iOS")
             devices.each do |device|
@@ -70,19 +69,16 @@ jobs:
             end
           end
           exit 1
-          RUBY
-          ) || true
+          ' || true)
 
           if [ -z "${SIM_ID:-}" ]; then
-            RUNTIME=$(xcrun simctl list runtimes -j | ruby - <<'RUBY'
-          require "json"
-          runtimes = JSON.parse(STDIN.read).fetch("runtimes")
+            RUNTIME=$(ruby -rjson -e '
+          runtimes = JSON.parse(`xcrun simctl list runtimes -j`).fetch("runtimes")
           ios = runtimes.select { |r| r["identifier"].include?("iOS") && r["isAvailable"] }
           latest = ios.max_by { |r| Gem::Version.new(r["version"]) }
           abort "No iOS simulator runtime available" unless latest
           puts latest["identifier"]
-          RUBY
-          )
+          ')
             SIM_ID=$(xcrun simctl create "SwiftEventBus-CI" "iPhone 16" "$RUNTIME")
           fi
 

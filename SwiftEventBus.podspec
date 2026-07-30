@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'SwiftEventBus'
-  s.version = '5.2.0'
+  s.version = '5.3.0'
   s.license = 'MIT'
   s.summary = 'Publish/subscribe event bus for iOS and macOS'
   s.homepage = 'https://github.com/cesarferreira/SwiftEventBus'

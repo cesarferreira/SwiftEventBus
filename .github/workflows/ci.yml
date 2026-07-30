@@ -44,34 +44,10 @@ jobs:
           DERIVED_DATA="$RUNNER_TEMP/DerivedData"
           LOG_FILE="$RUNNER_TEMP/sample-smoke.log"
 
-          DESTINATIONS=$(xcodebuild \
-            -project SwiftEventBus.xcodeproj \
-            -scheme Sample \
-            -showdestinations 2>/dev/null || true)
-
-          echo "$DESTINATIONS" | head -20
-
-          SIM_ID=$(echo "$DESTINATIONS" | ruby - <<'RUBY'
-          lines = STDIN.each_line.map(&:strip)
-          preferred = lines.find { |l| l.include?("platform:iOS Simulator") && l.include?("name:iPhone 16") && !l.include?("placeholder") }
-          preferred ||= lines.find { |l| l.include?("platform:iOS Simulator") && l.include?("name:iPhone") && !l.include?("placeholder") }
-          preferred ||= lines.find { |l| l.include?("platform:iOS Simulator") && !l.include?("placeholder") }
-          if preferred&.match(/id:([A-F0-9-]+)/)
-            puts $1
-          else
-            warn "No simulator destination found"
-            exit 1
-          end
-          RUBY
-          )
-
-          DESTINATION="platform=iOS Simulator,id=${SIM_ID}"
-          echo "Using simulator destination: $DESTINATION"
-
           xcodebuild \
             -project SwiftEventBus.xcodeproj \
             -scheme Sample \
-            -destination "$DESTINATION" \
+            -destination 'generic/platform=iOS Simulator' \
             -derivedDataPath "$DERIVED_DATA" \
             -configuration Debug \
             CODE_SIGNING_ALLOWED=YES \
@@ -80,6 +56,37 @@ jobs:
 
           APP_PATH=$(find "$DERIVED_DATA" -path '*-iphonesimulator/Sample.app' -type d | head -1)
           test -d "$APP_PATH"
+
+          SIM_ID=$(xcrun simctl list devices available -j | ruby - <<'RUBY'
+          require "json"
+          data = JSON.parse(STDIN.read)
+          data.fetch("devices").each do |runtime, devices|
+            next unless runtime.include?("iOS")
+            devices.each do |device|
+              next unless device["isAvailable"]
+              next unless device["name"].start_with?("iPhone")
+              puts device["udid"]
+              exit 0
+            end
+          end
+          exit 1
+          RUBY
+          ) || true
+
+          if [ -z "${SIM_ID:-}" ]; then
+            RUNTIME=$(xcrun simctl list runtimes -j | ruby - <<'RUBY'
+          require "json"
+          runtimes = JSON.parse(STDIN.read).fetch("runtimes")
+          ios = runtimes.select { |r| r["identifier"].include?("iOS") && r["isAvailable"] }
+          latest = ios.max_by { |r| Gem::Version.new(r["version"]) }
+          abort "No iOS simulator runtime available" unless latest
+          puts latest["identifier"]
+          RUBY
+          )
+            SIM_ID=$(xcrun simctl create "SwiftEventBus-CI" "iPhone 16" "$RUNTIME")
+          fi
+
+          echo "Using simulator: $SIM_ID"
 
           xcrun simctl boot "$SIM_ID" 2>/dev/null || true
           xcrun simctl bootstatus "$SIM_ID" -b
@@ -90,7 +97,7 @@ jobs:
 
           xcrun simctl spawn "$SIM_ID" log show --style compact --last 2m 2>/dev/null | tee "$LOG_FILE"
 
-          grep -q "Starting request" "$LOG_FILE"
-          grep -q "Request finished" "$LOG_FILE"
+          grep -q "SwiftEventBusSmoke: Starting request" "$LOG_FILE"
+          grep -q "SwiftEventBusSmoke: Request finished" "$LOG_FILE"
 
           xcrun simctl shutdown "$SIM_ID" || true

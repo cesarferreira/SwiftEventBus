@@ -15,6 +15,7 @@ class LoginService {
         SwiftEventBus.onMainThread(self, name:"loginCall") { _ in
             
             print("Starting request...")
+            NSLog("SwiftEventBusSmoke: Starting request...")
             
             var useless = 0
             
@@ -23,6 +24,7 @@ class LoginService {
             }
             
             print("Request finished...")
+            NSLog("SwiftEventBusSmoke: Request finished...")
             
             SwiftEventBus.post("login", sender: Person(name: "cesar ferreira"))
             

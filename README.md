@@ -17,6 +17,7 @@ Allows publish-subscribe-style communication between components without requirin
 - [x] is fast
 - [x] is tiny
 - [x] Thread-safe
+- [x] iOS, macOS, tvOS, and watchOS (Swift Package Manager)
 
 ## Installation
 
@@ -59,6 +60,41 @@ github "cesarferreira/SwiftEventBus" ~> 5.2
 - `3.+` — Swift 4.2
 - `2.+` — Swift 3
 - `1.1.0` — Swift 2.2
+
+## macOS
+
+SwiftEventBus is **Foundation-only** (no UIKit), so it works on **macOS 10.15+** with the same API as on iOS.
+
+**Recommended:** add the package in Xcode (**File → Add Package Dependencies…**) or depend on it from your app's `Package.swift` (see above). CI builds and tests the library on macOS on every push.
+
+**CocoaPods** on Mac:
+
+```bash
+pod 'SwiftEventBus', '~> 5.2'
+```
+
+Example in an `NSViewController` subclass:
+
+```swift
+import AppKit
+import SwiftEventBus
+
+final class MainViewController: NSViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        SwiftEventBus.onMainThread(self, name: "refresh") { _ in
+            self.view.needsLayout = true
+        }
+    }
+
+    deinit {
+        SwiftEventBus.unregister(self)
+    }
+}
+```
+
+The **Sample** app in this repo is iOS-only (storyboard demo). For Mac apps, integrate via Swift Package Manager or CocoaPods as above.
 
 ## Usage
 

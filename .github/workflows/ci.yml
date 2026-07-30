@@ -8,7 +8,7 @@ on:
 
 jobs:
   spm:
-    name: Swift Package Manager
+    name: macOS (Swift Package Manager)
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
@@ -18,7 +18,7 @@ jobs:
         run: swift test -v
 
   xcode:
-    name: Xcode framework
+    name: iOS (Xcode framework)
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
@@ -28,6 +28,21 @@ jobs:
             -project SwiftEventBus.xcodeproj \
             -scheme SwiftEventBus \
             -destination 'generic/platform=iOS' \
+            -configuration Release \
+            CODE_SIGNING_ALLOWED=NO \
+            build
+
+  macos-framework:
+    name: macOS (Xcode framework)
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build SwiftEventBus framework for macOS
+        run: |
+          xcodebuild \
+            -project SwiftEventBus.xcodeproj \
+            -scheme SwiftEventBus \
+            -destination 'generic/platform=macOS' \
             -configuration Release \
             CODE_SIGNING_ALLOWED=NO \
             build

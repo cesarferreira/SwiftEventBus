@@ -2,7 +2,7 @@ Pod::Spec.new do |s|
   s.name = 'SwiftEventBus'
   s.version = '5.2.0'
   s.license = 'MIT'
-  s.summary = 'Publish/subscribe event bus optimized for iOS'
+  s.summary = 'Publish/subscribe event bus for iOS and macOS'
   s.homepage = 'https://github.com/cesarferreira/SwiftEventBus'
   s.social_media_url = 'http://twitter.com/cesarmcferreira'
   s.authors = { 'César Ferreira' => 'cesar.manuel.ferreira@gmail.com' }

@@ -37,12 +37,66 @@ jobs:
     runs-on: macos-15
     steps:
       - uses: actions/checkout@v4
-      - name: Build Sample for iOS Simulator
+      - name: Build, launch, and smoke-test Sample on Simulator
         run: |
+          set -euo pipefail
+
+          DERIVED_DATA="$RUNNER_TEMP/DerivedData"
+          LOG_FILE="$RUNNER_TEMP/sample-smoke.log"
+
+          DESTINATION_LINE=$(xcodebuild \
+            -project SwiftEventBus.xcodeproj \
+            -scheme Sample \
+            -showdestinations 2>/dev/null \
+            | grep "platform:iOS Simulator" \
+            | grep "name:iPhone 16" \
+            | head -1)
+
+          if [ -z "$DESTINATION_LINE" ]; then
+            DESTINATION_LINE=$(xcodebuild \
+              -project SwiftEventBus.xcodeproj \
+              -scheme Sample \
+              -showdestinations 2>/dev/null \
+              | grep "platform:iOS Simulator" \
+              | grep "name:iPhone" \
+              | head -1)
+          fi
+
+          SIM_ID=$(echo "$DESTINATION_LINE" | sed -n 's/.*id:\([A-F0-9-]*\).*/\1/p')
+          DESTINATION="platform=iOS Simulator,id=${SIM_ID}"
+
+          echo "Using simulator destination: $DESTINATION"
+
           xcodebuild \
             -project SwiftEventBus.xcodeproj \
             -scheme Sample \
-            -destination 'generic/platform=iOS Simulator' \
+            -destination "$DESTINATION" \
+            -derivedDataPath "$DERIVED_DATA" \
             -configuration Debug \
-            CODE_SIGNING_ALLOWED=NO \
+            CODE_SIGNING_ALLOWED=YES \
+            CODE_SIGN_IDENTITY=- \
             build
+
+          APP_PATH=$(find "$DERIVED_DATA" -path '*-iphonesimulator/Sample.app' -type d | head -1)
+          test -d "$APP_PATH"
+
+          xcrun simctl boot "$SIM_ID" 2>/dev/null || true
+          xcrun simctl bootstatus "$SIM_ID" -b
+          xcrun simctl install "$SIM_ID" "$APP_PATH"
+
+          set +e
+          timeout 25 xcrun simctl launch --console "$SIM_ID" cesarferreira.Sample -SmokeTest 2>&1 | tee "$LOG_FILE"
+          LAUNCH_STATUS=${PIPESTATUS[0]}
+          set -e
+
+          if [ "$LAUNCH_STATUS" -eq 124 ]; then
+            echo "Simulator launch timed out after posting smoke events (expected)."
+          elif [ "$LAUNCH_STATUS" -ne 0 ]; then
+            echo "Simulator launch failed with status $LAUNCH_STATUS"
+            exit "$LAUNCH_STATUS"
+          fi
+
+          grep -q "Starting request" "$LOG_FILE"
+          grep -q "Request finished" "$LOG_FILE"
+
+          xcrun simctl shutdown "$SIM_ID" || true

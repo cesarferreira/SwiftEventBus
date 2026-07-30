@@ -4,7 +4,7 @@ open class SwiftEventBus {
     
     struct Static {
         static let instance = SwiftEventBus()
-        static let queue = DispatchQueue(label: "com.cesarferreira.SwiftEventBus", attributes: [])
+        static let queue = DispatchQueue(label: "com.cesarferreira.SwiftEventBus")
     }
     
     struct NamedObserver {
@@ -59,7 +59,7 @@ open class SwiftEventBus {
     @discardableResult
     open class func on(_ target: AnyObject, name: String, sender: Any? = nil, queue: OperationQueue?, handler: @escaping ((Notification?) -> Void)) -> NSObjectProtocol {
         let id = UInt(bitPattern: ObjectIdentifier(target))
-        let observer = NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: name), object: sender, queue: queue, using: handler)
+        let observer = NotificationCenter.default.addObserver(forName: Notification.Name(rawValue: name), object: sender, queue: queue, using: handler)
         let namedObserver = NamedObserver(observer: observer, name: name)
         
         Static.queue.sync {
